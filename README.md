@@ -2,23 +2,23 @@
 MATLAB implementation and comparison of Alpha-Beta and Kalman filters for aircraft trajectory tracking and noise mitigation in Secondary Surveillance Radar (SSR) data.
 # Alpha-Beta and Kalman Filtering for Aircraft Tracking
 
-[cite_start]This project implements and compares two filtering algorithms (**Alpha-Beta** and **Kalman Filter**) to estimate aircraft position and velocity based on noisy measurements from a Secondary Surveillance Radar (SSR)[cite: 39]. [cite_start]This work was developed for the *Positioning, Guidance, and Control* course at **ETSIAE (UPM)**[cite: 1, 11].
+[cite_start]This project implements and compares two filtering algorithms (**Alpha-Beta** and **Kalman Filter**) to estimate aircraft position and velocity based on noisy measurements from a Secondary Surveillance Radar (SSR). This work was developed for the *Positioning, Guidance, and Control* course at **ETSIAE (UPM)**.
 
 ## 📋 Problem Description
 
-[cite_start]The objective is to reconstruct the real trajectory of an aircraft by mitigating inherent radar measurement errors[cite: 39]. [cite_start]A "racetrack" trajectory including straight segments and turns is simulated, Gaussian noise is added to represent the sensor, and filters are applied to compare performance[cite: 162].
+The objective is to reconstruct the real trajectory of an aircraft by mitigating inherent radar measurement errors. A "racetrack" trajectory including straight segments and turns is simulated, Gaussian noise is added to represent the sensor, and filters are applied to compare performance.
 
 ### Simulation Scenario
 The simulation parameters are defined as follows:
-* [cite_start]**Aircraft Velocity:** Constant at 250 kts (~128 m/s)[cite: 19].
-* [cite_start]**Radar Update Rate (SSR):** Measurements every 4 seconds ($dt=4s$)[cite: 27].
+* **Aircraft Velocity:** Constant at 250 kts (~128 m/s).
+* **Radar Update Rate (SSR):** Measurements every 4 seconds ($dt=4s$)[cite: 27].
 * **Trajectory:**
-    1.  [cite_start]Radial approach ($90^\circ$)[cite: 20].
-    2.  [cite_start]Right-hand $180^\circ$ turn (5000m radius)[cite: 21].
-    3.  [cite_start]Outbound leg and second turn for return[cite: 22, 23].
+    1.  Radial approach ($90^\circ$)[cite: 20].
+    2.  Right-hand $180^\circ$ turn (5000m radius)[cite: 21].
+    3.  Outbound leg and second turn for return[cite: 22, 23].
 * **Sensor Noise (SSR):**
-    * [cite_start]Distance error ($\sigma_\rho$): 200 m[cite: 25].
-    * [cite_start]Angular error ($\sigma_\alpha$): $0.3^\circ$[cite: 26].
+    * Distance error ($\sigma_\rho$): 200 m[cite: 25].
+    * Angular error ($\sigma_\alpha$): $0.3^\circ$[cite: 26].
 
 ## ⚙️ Technologies and Algorithms
 
