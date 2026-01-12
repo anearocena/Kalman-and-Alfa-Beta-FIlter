@@ -2,7 +2,7 @@
 MATLAB implementation and comparison of Alpha-Beta and Kalman filters for aircraft trajectory tracking and noise mitigation in Secondary Surveillance Radar (SSR) data.
 # Alpha-Beta and Kalman Filtering for Aircraft Tracking
 
-[cite_start]This project implements and compares two filtering algorithms (**Alpha-Beta** and **Kalman Filter**) to estimate aircraft position and velocity based on noisy measurements from a Secondary Surveillance Radar (SSR). This work was developed for the *Positioning, Guidance, and Control* course at **ETSIAE (UPM)**.
+This project implements and compares two filtering algorithms (**Alpha-Beta** and **Kalman Filter**) to estimate aircraft position and velocity based on noisy measurements from a Secondary Surveillance Radar (SSR). This work was developed for the *Positioning, Guidance, and Control* course at **ETSIAE (UPM)**.
 
 ## 📋 Problem Description
 
