@@ -11,37 +11,37 @@ The objective is to reconstruct the real trajectory of an aircraft by mitigating
 ### Simulation Scenario
 The simulation parameters are defined as follows:
 * **Aircraft Velocity:** Constant at 250 kts (~128 m/s).
-* **Radar Update Rate (SSR):** Measurements every 4 seconds ($dt=4s$)[cite: 27].
+* **Radar Update Rate (SSR):** Measurements every 4 seconds ($dt=4s$).
 * **Trajectory:**
-    1.  Radial approach ($90^\circ$)[cite: 20].
-    2.  Right-hand $180^\circ$ turn (5000m radius)[cite: 21].
-    3.  Outbound leg and second turn for return[cite: 22, 23].
+    1.  Radial approach ($90^\circ$).
+    2.  Right-hand $180^\circ$ turn (5000m radius).
+    3.  Outbound leg and second turn for return.
 * **Sensor Noise (SSR):**
-    * Distance error ($\sigma_\rho$): 200 m[cite: 25].
-    * Angular error ($\sigma_\alpha$): $0.3^\circ$[cite: 26].
+    * Distance error ($\sigma_\rho$): 200 m.
+    * Angular error ($\sigma_\alpha$): $0.3^\circ$.
 
 ## ⚙️ Technologies and Algorithms
 
 The code is developed entirely in **MATLAB** and addresses two approaches:
 
 ### 1. Alpha-Beta Filter ($\alpha-\beta$)
-[cite_start]A simplified filter that assumes constant velocity and treats the X and Y coordinates independently[cite: 40].
-* [cite_start]**Pros:** Low computational cost, simple implementation[cite: 549].
-* [cite_start]**Cons:** Exhibits "lag" (delay) during maneuvers and uses fixed gains that do not adapt to signal-to-noise ratio changes[cite: 549, 550].
-* [cite_start]**Parameters:** Optimal $\alpha$ and $\beta$ were calculated based on the assumed process deviation ($\sigma_s = 250 m/s^2$) and measurement noise[cite: 95].
+A simplified filter that assumes constant velocity and treats the X and Y coordinates independently.
+* **Pros:** Low computational cost, simple implementation.
+* **Cons:** Exhibits "lag" (delay) during maneuvers and uses fixed gains that do not adapt to signal-to-noise ratio changes.
+* **Parameters:** Optimal $\alpha$ and $\beta$ were calculated based on the assumed process deviation ($\sigma_s = 250 m/s^2$) and measurement noise.
 
 ### 2. Kalman Filter
-[cite_start]A recursive optimal estimator that models the full system state ($[x, y, v_x, v_y]$) and its uncertainties using covariance matrices[cite: 45].
-* [cite_start]**Initial Covariance Matrix ($P_0$):** Initialized with high values ($50,000$) to reflect initial position uncertainty[cite: 51].
-* [cite_start]**Process Noise Matrix ($Q$):** Models the system's flexibility regarding maneuvers or wind gusts (imprecision of 250m in position and 0.1 m/s in velocity)[cite: 63].
-* [cite_start]**Pros:** Better response in turns, superior trajectory smoothing, and dynamic gain adaptation via covariance coupling between axes[cite: 551, 552].
+A recursive optimal estimator that models the full system state ($[x, y, v_x, v_y]$) and its uncertainties using covariance matrices.
+* **Initial Covariance Matrix ($P_0$):** Initialized with high values ($50,000$) to reflect initial position uncertainty.
+* **Process Noise Matrix ($Q$):** Models the system's flexibility regarding maneuvers or wind gusts (imprecision of 250m in position and 0.1 m/s in velocity).
+* **Pros:** Better response in turns, superior trajectory smoothing, and dynamic gain adaptation via covariance coupling between axes.
 
 ## 📊 Results and Conclusions
 
 Upon analyzing the simulation results and graphs:
-1.  [cite_start]**Precision:** The Kalman filter provides a significantly smoother estimation closer to the real trajectory, especially during $180^\circ$ turns where the Alpha-Beta filter tends to react with a delay[cite: 552, 559].
-2.  [cite_start]**Performance:** Although the Alpha-Beta filter reduces noise, its lack of correlation between axes makes it less suitable for sharp maneuvers[cite: 550].
-3.  [cite_start]**Usage:** The Kalman filter is recommended for critical tracking tasks requiring precision and robustness, reserving Alpha-Beta for systems with resource constraints[cite: 560].
+1.  **Precision:** The Kalman filter provides a significantly smoother estimation closer to the real trajectory, especially during $180^\circ$ turns where the Alpha-Beta filter tends to react with a delay.
+2.  **Performance:** Although the Alpha-Beta filter reduces noise, its lack of correlation between axes makes it less suitable for sharp maneuvers.
+3.  **Usage:** The Kalman filter is recommended for critical tracking tasks requiring precision and robustness, reserving Alpha-Beta for systems with resource constraints.
 
 ## 🚀 Installation and Usage
 
@@ -57,6 +57,6 @@ Upon analyzing the simulation results and graphs:
 
 ## 👤 Author
 
-[cite_start]**Ane Arocena Blanco** [cite: 11]
+**Ane Arocena Blanco** 
 Universidad Politécnica de Madrid (UPM)  
 Escuela Técnica Superior de Ingeniería Aeronáutica y del Espacio (ETSIAE)
